@@ -1,0 +1,66 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #333; /* Dark background color */
+    color: white;
+    font-family: Arial, sans-serif; /* Set the font */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center navbar items horizontally */
+    padding: 10px 20px; /* Padding inside the navbar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensures navbar stays on top */
+}
+
+/* Unordered List inside Navbar */
+.navbar ul {
+    margin-left: auto; 
+    list-style-type: none; /* Remove default list styling */
+    display: flex; /* Layout the list items inline */
+    padding-right: 20px; /* Add some right padding so the links are pushed away from the navbar edge */
+}
+
+/* List Items inside Navbar */
+.navbar li {
+    padding: 10px 15px; /* Spacing around each link */
+}
+
+/* Links inside Navbar */
+.navbar a {
+    color: white; /* Text color for links */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Links */
+.navbar a:hover {
+    color: #ddd; /* Lighten the link color on hover */
+}
+
+/* Active Link Styling (if applicable) */
+.navbar a.active {
+    color: #4CAF50; /* Different color for the active link */
+    border-bottom: 2px solid #4CAF50; /* Underline effect for the active link */
+}
+
+/* Responsive Design: Adjusts navbar for smaller screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column; /* Stack the links vertically */
+        align-items: center; /* Center the links */
+    }
+
+    .navbar li {
+        width: 100%; /* Full width list items */
+        text-align: center; /* Center the text inside list items */
+    }
+}

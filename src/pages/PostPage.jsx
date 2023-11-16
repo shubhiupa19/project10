@@ -2,14 +2,21 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import supabase from '../utils/supabaseClient';
+import { useNavigate } from 'react-router-dom';
+import './PostPage.css';
 
 const PostPage = () => {
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
-  const { id } = useParams();
+  const { id: stringId } = useParams();
+  const id = parseInt(stringId, 10);
   const [trigger, setTrigger] = useState(false);
   const [triggerUpvotes, setTriggerUpvotes] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [editedTitle, setEditedTitle] = useState('');
+  const [editedContent, setEditedContent] = useState('');
+  const navigate = useNavigate();
 
   const handleUpvote = async () => {
     const {data, error} = await supabase 
@@ -47,30 +54,84 @@ const PostPage = () => {
     }
     setTrigger (prev => !prev);
   };
+
+  const handleEdit = () => {
+    setIsEditMode(true);
+    setEditedTitle(post.title);
+    setEditedContent(post.content);
+  };
+
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+    const { data, error } = await supabase
+      .from('posts')
+      .update({ title: editedTitle, content: editedContent })
+      .match({ id });
+      
+  
+    setIsEditMode(false);
+    navigate('/');
+  };
+
+  const handleDelete = async () => {
+    const { data, error } = await supabase
+      .from('posts')
+      .delete()
+      .match({ id });
+      navigate('/');  
+    if (!error) {
+      navigate('/');  
+    }
+    // Handle errors
+  };
+
+  if (isEditMode) {
+    return (
+      <form onSubmit={handleEditSubmit}>
+        <input type="text" value={editedTitle} onChange={(e) => setEditedTitle(e.target.value)} />
+        <textarea value={editedContent} onChange={(e) => setEditedContent(e.target.value)} />
+        <button type="submit">Save Changes</button>
+        <button onClick={() => setIsEditMode(false)}>Cancel</button>
+      </form>
+    );
+  }
+
   
  
   return (
     <div>
       {post && (
         <div>
-          <h1>{post.title}</h1>
-          <p>{post.content}</p>
-          <img src={post.image} alt={post.title} />
+            <div className = "contents">
+            <h1>{post.title}</h1> <br/>
+            <p> Description: {post.content}</p> <br/>
+            <img src={post.image} alt={post.title} />
+          </div>
           
-          <button onClick={handleUpvote}>Upvote ({post.upvotes})</button>
-          <div> 
-            {comments.map(comment => ( 
-                <div key = {comment.id}>
-                  <p>{comment.content}</p>
-                  </div>
+          <div className = "buttons">
+            <button onClick={handleUpvote}>Upvote ({post.upvotes})</button>
+            <div className = "actions">
+             <button onClick={handleEdit}>Edit Post</button>
+            <button onClick={handleDelete}>Delete Post</button>
+            </div>
+          </div>
 
-            ))}
-          
-        </div>
-        <form onSubmit={handleCommentSubmit}>
+            <div className = "entireComments">
+          <form onSubmit={handleCommentSubmit}>
             <textarea value={newComment} onChange={(e) => setNewComment(e.target.value)} placeholder="Add a comment"></textarea>
             <button type="submit">Submit Comment</button>
         </form>
+        <h3>Comments: </h3>
+          <div className="comments"> 
+            {comments.map(comment => ( 
+                <div key = {comment.id}>
+                  <p>{comment.content}</p>
+                  </div>    
+            ))}
+          
+        </div>
+        </div>
+       
         </div>
       )}
     </div>

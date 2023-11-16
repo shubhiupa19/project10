@@ -2,17 +2,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import supabase from '../utils/supabaseClient';
+import './CreatePostPage.css';
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data, error } = await supabase.from('posts').insert([{ title, content }]);
-    if (data) navigate('/');
+    const { data, error} = await supabase.from('posts').insert([{ title, content }]);
+    if (!error) 
+    {
+        navigate('/');
+    }
   };
 
   return (

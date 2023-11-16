@@ -26,7 +26,7 @@
     margin-left: auto; 
     list-style-type: none; /* Remove default list styling */
     display: flex; /* Layout the list items inline */
-    padding-right: 20px; /* Add some right padding so the links are pushed away from the navbar edge */
+    padding-right: 10px;
 }
 
 /* List Items inside Navbar */

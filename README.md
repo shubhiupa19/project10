@@ -15,7 +15,7 @@ The following **required** functionality is completed:
 - [ X] **A home feed displaying previously created posts**
 - [X ] **By default, the time created, title, and number of upvotes for each post is shown on the feed**
 - [ X] **Clicking on a post shall direct the user to a new page for the selected post**
-- [C ] **Users can sort posts by either their created time or upvotes count**
+- [X ] **Users can sort posts by either their created time or upvotes count**
 - [X ] **Users can search for posts by title**
 - [X ] **A separate post page for each created post, where any additional information is shown is linked whenever a user clicks a post**
 - [X ] **Users can leave comments underneath a post on the post's separate page**
@@ -41,7 +41,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src=Kapture 2023-11-17 at 16.30.08.gif width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  

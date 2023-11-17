@@ -56,7 +56,7 @@ const HomePage = ({ searchTerm }) => {
           <div className = "posts" key={post.id}>
             <p> Created at: {formatDate(post.created_at)}</p>
             <h3>{post.title}</h3> 
-            <h4><Link to={`/post/${post.id}`}>More info!!</Link></h4>
+            <h4><Link to={`/post/${post.id}`}>Click here for more info!!</Link></h4>
             <p>Upvotes: {post.upvotes}</p>
           </div>
         ))}

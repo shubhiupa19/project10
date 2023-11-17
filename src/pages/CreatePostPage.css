@@ -1,4 +1,31 @@
-    div {
+    .page {
         display: flex;
         flex-direction: column;
     }
+
+    input {
+        width: 80%; /* Adjust width as needed */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        margin-top: 20px;
+        margin-left: -10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+

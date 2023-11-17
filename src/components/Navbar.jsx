@@ -13,7 +13,7 @@ const Navbar = ({ onSearch }) => {
       };
   return (
     <nav className='navbar'>
-         <input type="text" value={searchTerm} onChange={handleSearchChange} placeholder="Search Posts" />
+         <input type="text" className = "search-bar" value={searchTerm} onChange={handleSearchChange} placeholder="Search Posts" />
       <ul>
         <li>
           <Link to="/">Home</Link>

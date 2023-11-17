@@ -7,7 +7,7 @@
 
 /* Navbar Styles */
 .navbar {
-    background-color: #333; /* Dark background color */
+    background-color: #3B6A3E; /* Dark background color */
     color: white;
     font-family: Arial, sans-serif; /* Set the font */
     display: flex;
@@ -33,7 +33,13 @@
 .navbar li {
     padding: 10px 15px; /* Spacing around each link */
 }
-
+.search-bar {
+    border-radius: 10px; /* Adjust this value to increase or decrease the roundness */
+    padding: 5px 10px; /* Optional: for better spacing inside the search bar */
+    border: 1px solid #ccc; /* Optional: to give the search bar a border */
+    /* Additional styling as needed */
+    width: 400px;
+}
 /* Links inside Navbar */
 .navbar a {
     color: white; /* Text color for links */

@@ -16,6 +16,7 @@ const PostPage = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [editedTitle, setEditedTitle] = useState('');
   const [editedContent, setEditedContent] = useState('');
+  const [editedImageUrl, setEditedImageUrl] = useState('');
   const navigate = useNavigate();
 
   const handleUpvote = async () => {
@@ -36,7 +37,7 @@ const PostPage = () => {
       const commentsData = await supabase.from('comments').select('*').eq('post_id', id);
       if (postData.data) setPost(postData.data);
       if (commentsData.data) setComments(commentsData.data);
-
+      console.log(postData)
     };
 
     fetchPost();
@@ -65,7 +66,7 @@ const PostPage = () => {
     e.preventDefault();
     const { data, error } = await supabase
       .from('posts')
-      .update({ title: editedTitle, content: editedContent })
+      .update({ title: editedTitle, content: editedContent, image_url:editedImageUrl })
       .match({ id });
       
   
@@ -87,11 +88,12 @@ const PostPage = () => {
 
   if (isEditMode) {
     return (
-      <form onSubmit={handleEditSubmit}>
-        <input type="text" value={editedTitle} onChange={(e) => setEditedTitle(e.target.value)} />
-        <textarea value={editedContent} onChange={(e) => setEditedContent(e.target.value)} />
-        <button type="submit">Save Changes</button>
-        <button onClick={() => setIsEditMode(false)}>Cancel</button>
+      <form className = "editForm" onSubmit={handleEditSubmit}>
+        <input type="text" className = "formInput" value={editedTitle} onChange={(e) => setEditedTitle(e.target.value)} placeholder='Edit Title' />
+        <textarea value={editedContent} onChange={(e) => setEditedContent(e.target.value)} placeholder='Edit Description' />
+        <textarea className = "imageEdit" value={editedImageUrl} onChange={(e) => setEditedImageUrl(e.target.value)} placeholder='Edit Image URL'/>
+        <button className = "edit" type="submit">Save Changes</button>
+        <button onClick={() => setIsEditMode(false)} className = "cancel">Cancel</button>
       </form>
     );
   }
@@ -105,7 +107,7 @@ const PostPage = () => {
             <div className = "contents">
             <h1>{post.title}</h1> <br/>
             <p> Description: {post.content}</p> <br/>
-            <img src={post.image} alt={post.title} />
+            <img src={post.image_url} alt={post.title} />
           </div>
           
           <div className = "buttons">
@@ -119,13 +121,13 @@ const PostPage = () => {
             <div className = "entireComments">
           <form onSubmit={handleCommentSubmit}>
             <textarea value={newComment} onChange={(e) => setNewComment(e.target.value)} placeholder="Add a comment"></textarea>
-            <button type="submit">Submit Comment</button>
+            <button type="submit">Submit Comment</button> <br/> <br/>
         </form>
-        <h3>Comments: </h3>
+        <h3>Comments: </h3> <br/>
           <div className="comments"> 
             {comments.map(comment => ( 
                 <div key = {comment.id}>
-                  <p>{comment.content}</p>
+                  <p><b>Comment: </b>{comment.content}</p>
                   </div>    
             ))}
           

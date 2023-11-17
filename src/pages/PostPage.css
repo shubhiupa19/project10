@@ -1,3 +1,5 @@
+
+
 .contents {
     display: flex;
     flex-direction: column;
@@ -9,26 +11,86 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-top: 10px;
+    
 }
 
 button {
     margin-left: 10px;
     margin-right: 10px;
+    
 }
 
 .actions {
-    margin-left: auto;
+    margin-left: 10px;
+
 }
 
 .buttons > button:first-child {
     margin-right: auto;
   }
 
-  form {
-    margin-bottom: 30px;
+  .editForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between form elements */
+    padding: 20px;
+    background: #f8f8f8; /* Light background for the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 10px #ccc; /* Soft shadow for depth */
+    margin: 20px;
+    width: 500px;
+    height: 400px;
   }
 
+  textarea {
+    width: 80%; /* Consistent width with the input */
+    height: 150px; /* Enough height for content */
+    padding: 8px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    resize: vertical; /* Allows vertical resizing */
+}
+
+.imageEdit {
+    width: 80%; /* Adjust width as needed */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.edit {
+    background-color: #4CAF50; /* Green for submit */
+    color: white;
+}
+
+.cancel {
+    background-color: #f44336; /* Red for cancel */
+    margin-top: 10px;
+    color: white;
+}
+
+.formInput {
+    width: 80%; /* Adjust width as needed */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
 
 .entireComments {
     display: flex;
@@ -40,3 +102,8 @@ button {
     margin-bottom: 30px;
 }
 
+img {
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+}

@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+
 .header {
-    position: fixed;
+    position: absolute;
     top: 80px;
     padding-top: 10px;
     z-index: 1000;
+    color: #3B6A3E;
   }
   
   .page {
@@ -14,7 +22,16 @@
     margin-top: 125px;
     margin-bottom: 20px;
     top: 20%;
+    color: #3B6A3E;
+    
   }
+
+  button {
+    margin-left: 100px;
+    margin-right: 100px;
+    
+  }
+
 
   .posts {
     background: white;
@@ -23,4 +40,47 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     transition: transform 0.3s ease;
+    color: #3B6A3E;
+  }
+
+  .posts:hover {
+    transform: translateY(-5px);
+  }
+
+  .posts h2 {
+    margin-bottom: 10px;
+
+  }
+
+  .posts p {
+    margin-bottom: 10px;
+  }
+
+  .posts a {
+    color: #3B6A3E;
+    text-decoration: none;
+  }
+
+  .posts a:hover {
+    text-decoration: underline;
+  }
+
+  .posts .read-more {
+    text-align: right;
+  }
+
+  .posts .read-more a {
+    color: #3B6A3E;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .posts .read-more a:hover {
+    color: #4CAF50;
+  }
+
+  .posts .post-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
   }

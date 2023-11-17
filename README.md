@@ -44,7 +44,7 @@ Here's a walkthrough of implemented user stories:
 <img src=Kapture 2023-11-17 at 16.30.08.gif width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with ...  Kap
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -54,9 +54,11 @@ GIF created with ...
 
 Describe any challenges encountered while building the app.
 
+Working on the CSS was the hardest part of this challenge for me (e.g. making sure the usability was appropriate)
+
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2023] [Shubhi Upadhyay]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

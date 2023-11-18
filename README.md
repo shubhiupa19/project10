@@ -41,7 +41,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='Kapture 2023-11-17 at 16.30.08.gif' width='' alt='Video Walkthrough' />
+<img src='Kapture 2023-11-18 at 13.10.56.gif' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  Kap
